@@ -12,6 +12,11 @@ class Disconnect(Exception): pass
 Error = namedtuple("Error", ("message", ))
 
 class ProtocolHandler(object):
+    def __init__(self):
+        self.handler = {
+            '+': self.handle_simple_string,
+        }
+
     def handle_request(self, socket_file):
         pass
 
