@@ -3,7 +3,7 @@ from sql_parser import parse_command
 from db_core.database import DatabaseManager
 
 def main():
-    print("[Connectinng MYDB......]")
+    print("[Connecting MYDB......]")
     time.sleep(1)
     print("[Server version: 1.0-MYDB]")
     print("[Welcome To My Own DataBase!]")
