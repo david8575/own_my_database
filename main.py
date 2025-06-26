@@ -1,6 +1,28 @@
-from engine.table import Table
+import time
+from sql_parser import parse_command
+from db_core.database import DatabaseManager
 
-db = Table()
-db.create_table("user", ["id", "name", "email"])
-db.insert("user", ["1", "Alice", "alice@example.com"])
-db.insert("user", ["2", "Bob", "bob@example.com"])
+def main():
+    print("[Connectiing MYDB......]")
+    time.sleep(1)
+    print("[Server version: 1.0-MYDB]")
+    print("[Welcome To My Own DataBase!]")
+    print("[Type 'exit' to Quit.]\n")
+
+    db_manager = DatabaseManager()
+
+    while True:
+        try: 
+            command = input("mydb>>> ").strip()
+
+            if command.lower() in ["exit", "quit"]:
+                print("[bye!]")
+                break
+
+            parse_command(command, db_manager)        
+        
+        except Exception as e:
+            print(f"[error]: {e}")
+
+if __name__=="__main__":
+    main()
