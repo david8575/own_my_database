@@ -1,5 +1,5 @@
 import time
-from sql_parser import parse_command
+from sql_parser import parse_command, init_parser
 from db_core.database import DatabaseManager
 
 def main():
@@ -10,10 +10,11 @@ def main():
     print("[Type 'exit' to Quit.]\n")
 
     db_manager = DatabaseManager()
+    init_parser(db_manager)
 
     while True:
         try: 
-            command = input("mydb>>> ").strip()
+            command = input(f"[{db_manager.current_db}]mydb>>> ").strip()
 
             if command.lower() in ["exit", "quit"]:
                 print("[bye!]")

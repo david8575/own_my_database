@@ -25,7 +25,6 @@ class DatabaseManager:
             raise Exception(f"database '{db_name}' does not exist")
         
         self.current_db = db_name
-        print(f"[OK] using database '{db_name}'")
     
     def get_current_db_path(self):
         if not self.current_db:
