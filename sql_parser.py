@@ -6,6 +6,20 @@ def init_parser(db_manager):
     global table_manager
     table_manager = TableManager(db_manager)
 
+def parse_column_definition(column_def):
+    column_def = column_def.strip()
+
+    type_patterns = {
+        r'INT(?:EGER))?',
+        r'VARCHAR\(\d+\)',
+        r'TEXT',
+        r'BOOLEAN',
+        r'FLOAT',
+        r'FLOAT',
+        r'DOUBLE',
+    }
+
+    
 def parse_command(command: str, db_manager):
     cmd = command.strip().rstrip(";")
 
